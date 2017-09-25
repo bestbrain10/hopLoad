@@ -4,7 +4,7 @@ My NodeJS file upload wrapper for express-fileUpload
 
 ## example
 
-```
+```Javascript
 fileUpload.init(req,'files_to_upload','folder') 
 .exclude();//filter out file type, I am using thier mimetype
 .include();//you should use only one filter, it doesnt make sense using both include and exclude

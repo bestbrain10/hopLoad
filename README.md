@@ -20,4 +20,7 @@ fileUpload.init(req,'files_to_upload','folder')
 ```
 
 ## Note
-The other at which you chain methods matters
+The order at which you chain methods matters
+ - filters (```exclude``` and ```include```) should come first
+ - ```limit``` should come after filters
+ - ```upload``` should always be the last

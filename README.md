@@ -10,7 +10,7 @@ fileUpload.init(req,'files_to_upload','folder')
 .include();//you should use only one filter, it doesnt make sense using both include and exclude
 .limit(2)//limit number of files to be uploaded
 .upload((files,rollback)=>{
-    rollback(); //to delete uploaded files
+    rollback(); //to delete uploaded files incase of errors during some callback operation
     res.json(files);
 },[
         "d86c43a439cc045bb704e64feca77c31ea5b0e4cf28c07f770211a74ab2c8961.jpg",

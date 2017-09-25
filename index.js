@@ -76,8 +76,23 @@ module.exports = class Files{
         });
     }
 
-    filter(filter = 'image'){
-        this.files =  this.files.filter(file => file.mimetype.search(filter) !== -1);
+    filter(filter,negative = false){
+        filter = Array.isArray(filter)?filter: Array(filter);
+    	filter.forEach(f => {
+    		this.files =  this.files.filter(file =>{
+             return negative ? file.mimetype.includes(f):!file.mimetype.includes(f)
+            });	
+    	})
+    }
+
+    exclude(filter = 'application'){
+        this.filter(filter);
+        return this;
+    }
+
+
+    include(filter = 'image'){
+    	this.filter(filter,true);
         return this;
     }
 
